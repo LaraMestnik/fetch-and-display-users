@@ -26,6 +26,10 @@ function App() {
     fetchUsers();
   }, [])
 
+  const deleteAll = () => {
+    setUsers([]);
+  }
+
   if (loading) {
     return <Loader />;
   }
@@ -36,7 +40,7 @@ function App() {
           return <User key={user.id} {...user} />
         })}
       </div>
-      <button className='btn' onClick={() => console.log('clicked')}>delete all</button>
+      <button className='btn' onClick={deleteAll}>delete all</button>
     </main>
   );
 }

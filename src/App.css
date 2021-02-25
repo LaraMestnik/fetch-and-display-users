@@ -48,4 +48,5 @@ main{
   border-radius: .5rem;
   color: #fff;
   letter-spacing: 1px;
+  cursor: pointer;
 }
