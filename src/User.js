@@ -1,11 +1,14 @@
 
 
 
-export default function User({ name, phone }) {
+export default function User({ name, phone, id, deleteUser }) {
     return (
         <article className='user'>
-            <h1>{name}</h1>
-            <h3>{phone}</h3>
+            <div>
+                <h1>{name}</h1>
+                <p>{phone}</p>
+            </div>
+            <button className='delete-user-btn' onClick={() => deleteUser(id)}>delete user</button>
         </article>
     )
 }

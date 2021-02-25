@@ -30,6 +30,11 @@ function App() {
     setUsers([]);
   }
 
+  const deleteUser = (id) => {
+    const newUsers = users.filter(user => user.id !== id);
+    setUsers(newUsers);
+  }
+
 
   if (loading) {
     return <Loader />;
@@ -45,7 +50,7 @@ function App() {
     <main>
       <div className="app">
         {users.map(user => {
-          return <User key={user.id} {...user} />
+          return <User key={user.id} {...user} deleteUser={deleteUser} />
         })}
       </div>
       <button className='btn' onClick={deleteAll}>delete all</button>
