@@ -1,24 +1,43 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
+import User from './User';
+import Loader from './Loader.js';
+
+const url = 'https://jsonplaceholder.typicode.com/users';
+
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  const [users, setUsers] = useState([]);
+
+  const fetchUsers = async () => {
+    try {
+      const response = await fetch(url);
+      const users = await response.json();
+      setLoading(false);
+      setUsers(users);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchUsers();
+  }, [])
+
+  if (loading) {
+    return <Loader />;
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <div className="app">
+        {users.map(user => {
+          return <User key={user.id} {...user} />
+        })}
+      </div>
+      <button className='btn' onClick={() => console.log('clicked')}>delete all</button>
+    </main>
   );
 }
 
