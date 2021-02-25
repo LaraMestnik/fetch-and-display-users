@@ -30,8 +30,16 @@ function App() {
     setUsers([]);
   }
 
+
   if (loading) {
     return <Loader />;
+  }
+  if (users.length === 0) {
+    return (
+      <div className="fetch-users">
+        <button className='btn' onClick={fetchUsers}>display users</button>
+      </div>
+    )
   }
   return (
     <main>

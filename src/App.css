@@ -50,3 +50,11 @@ main{
   letter-spacing: 1px;
   cursor: pointer;
 }
+
+.fetch-users{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
