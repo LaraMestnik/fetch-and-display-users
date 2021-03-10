@@ -52,15 +52,15 @@ main{
   text-transform: uppercase;
   font-size: 1.3rem;
   border: 1px solid rgba(31, 36, 33, .1);
-  background-color: #fff;
+  background-color: #D35269;
   border-radius: .5rem;
-  color: rgba(31, 36, 33, 1);
+  color: #fff;
   letter-spacing: 1px;
   cursor: pointer;
 }
 
 .btn:hover{
-  background-color: #fcfcfc;
+  background-color: #c94f64;
 }
 
 .fetch-users{
@@ -72,11 +72,9 @@ main{
 
 .delete-user-btn{
   margin-top: .9rem;
-  padding: 0.3rem 0;
-  border-radius: .5rem;
   border: none;
-  background-color: #D35269;
-  color:#fff;
+  background: transparent;
+  color:#D35269;
   cursor: pointer;
 }
 
